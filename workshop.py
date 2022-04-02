@@ -9,8 +9,7 @@ class Workshop:
         self._listofreceipts = listofreceipts
 
     def print_receipts(self):
-        all_receipts = self._listofreceipts
-        return all_receipts
+        return self._listofreceipts
 
     def create_receipt(self):
         initials = input("Введите ваше ФИО: ")
