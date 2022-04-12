@@ -56,19 +56,15 @@ class Workshop:
         if typeofdevice == "Телефон":
             os = input("Введите OС: ")
             dev = models.Phone(typeofdevice, brand, os, description)
-            new_receipt = receipt.Receipt(dev, dateofreceive, dateofrepair, initials, status)
-            self._listofreceipts.append(new_receipt)
 
         if typeofdevice == "Ноутбук":
             os = input("Введите OС: ")
             dateofmanufacturing = input("Введите дату производства: ")
             dev = models.Notebook(typeofdevice, brand, os, dateofmanufacturing, description)
-            new_receipt = receipt.Receipt(dev, dateofreceive, dateofrepair, initials, status)
-            self._listofreceipts.append(new_receipt)
 
         if typeofdevice == "Телевизор":
             diagonal = input("Введите диагональ экрана: ")
             dev = models.TV(typeofdevice, brand, diagonal, description)
-            new_receipt = receipt.Receipt(dev, dateofreceive, dateofrepair, initials, status)
-            self._listofreceipts.append(new_receipt)
 
+        new_receipt = receipt.Receipt(dev, dateofreceive, dateofrepair, initials, status)
+        self._listofreceipts.append(new_receipt)
