@@ -9,7 +9,34 @@ class Workshop:
         self._listofreceipts = listofreceipts
 
     def print_receipts(self):
-        return self._listofreceipts
+        print("\nЧтобы просмотреть информацию о квитанциях, введите номер квитанции или Ваше ФИО:")
+        print("1. Ввести ФИО")
+        print("2. Ввести номер квитанции")
+        sw = int(input())
+
+        if sw == 1:
+            info = input("Введите ваше ФИО: ")
+            found = False
+            for i in self._listofreceipts:
+                if i._initials == info:
+                    found = True
+                    print(i)
+
+            if not found:
+                print("Квитанций на Ваше имя не найдено. Попробуйте ещё раз.")
+
+        elif sw == 2:
+            info = int(input("Введите номер квитанции: "))
+            found = False
+            for i in self._listofreceipts:
+                if i._number == info:
+                    found = True
+                    print(i)
+
+            if not found:
+                print("Квитанций с таким номером не найдено. Попробуйте ещё раз.")
+        else:
+            print("Пожалуйста, выберите от 1 до 2.")
 
     def create_receipt(self):
         initials = input("Введите ваше ФИО: ")
@@ -36,8 +63,8 @@ class Workshop:
             dev = models.Notebook(typeofdevice, brand, os, dateofmanufacturing, description)
 
         if typeofdevice == "Телевизор":
-            diagonal = int(input("Введите диагональ экрана: "))
+            diagonal = input("Введите диагональ экрана: ")
             dev = models.TV(typeofdevice, brand, diagonal, description)
 
-        new_receipt = receipt.Receipt(typeofdevice, dateofreceive, dateofrepair, initials, status)
+        new_receipt = receipt.Receipt(dev, dateofreceive, dateofrepair, initials, status)
         self._listofreceipts.append(new_receipt)
