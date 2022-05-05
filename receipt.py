@@ -14,4 +14,3 @@ class Receipt:
         return f"Номер квитанции: {self._number}; Тип устройства: {self._typeOfDevice}; Дата получения: " \
                f"{self._dateOfReceiving}; Время на починку: {self._dateOfRepair} дня (дней); ФИО: {self._initials}; Статус готовности: " \
                f"{self._status}"
-
